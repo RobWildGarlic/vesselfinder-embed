@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"></head>
+  <body style="margin:0">
+    <script>
+      const q = new URLSearchParams(location.search);
+      // Map appearance
+      window.width  = "100%";
+      window.height = "100vh";
+      window.names  = true;
+
+      // Center (must be latitude/longitude) as NUMBERS
+      window.latitude  = Number(q.get("lat")) || 40.64;
+      window.longitude = Number(q.get("lon")) || 17.94;
+
+      // Zoom 3..18
+      window.zoom = Math.max(3, Math.min(18, Number(q.get("zoom")) || 9));
+
+      // Make sure nothing else overrides centering
+      delete window.mmsi; delete window.imo; delete window.fleet;
+    </script>
+    <script src="https://www.vesselfinder.com/aismap.js"></script>
+  </body>
+</html>
