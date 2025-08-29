@@ -9,8 +9,12 @@
       var height="100vh";
       var names=true;
       var zoom=q.get('zoom')||10;     // 3..18 is typical
-      var latitude=parseFloat(q.get('lat'))|| 40.64;
-      var longitude=parseFloat(q.get('lon'))|| 17.94;
+      //var latitude=parseFloat(q.get('lat'))|| 40.64;
+      //var longitude=parseFloat(q.get('lon'))|| 17.94;
+      // IMPORTANT: use centerx / centery (lon/lat) instead of latitude/longitude
+      var centerx = parseFloat(q.get("lon")) || 17.94; // longitude
+      var centery = parseFloat(q.get("lat")) || 40.64; // latitude
+
     </script>
     <script src="https://www.vesselfinder.com/aismap.js"></script>
   </body>
