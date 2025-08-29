@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"></head>
+  <body style="margin:0">
+    <script>
+      const q = new URLSearchParams(location.search);
+
+      // Make them true globals for aismap.js:
+      window.width   = "100%";
+      window.height  = "100vh";
+      window.names   = true;
+
+      // IMPORTANT: centerx (lon) / centery (lat), as numbers
+      window.centerx = Number(q.get("lon")) || 17.94; // longitude
+      window.centery = Number(q.get("lat")) || 40.64; // latitude
+      window.zoom    = Math.max(3, Math.min(18, Number(q.get("zoom")) || 9));
+
+      // Ensure bbox-style vars can't override:
+      delete window.latitude;
+      delete window.longitude;
+    </script>
+    <script src="https://www.vesselfinder.com/aismap.js"></script>
+  </body>
+</html>
