@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+  <body style="margin:0">
+    <script>
+      // Read ?lat & ?lon & ?zoom from the query string
+      const q=new URLSearchParams(location.search);
+      var width="100%";
+      var height="100vh";
+      var names=true;
+      var zoom=q.get('zoom')||"10";     // 3..18 is typical
+      var latitude=q.get('lat')||"40.64";
+      var longitude=q.get('lon')||"17.94";
+    </script>
+    <script src="https://www.vesselfinder.com/aismap.js"></script>
+  </body>
+</html>
